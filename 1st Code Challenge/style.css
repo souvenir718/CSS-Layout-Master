@@ -1,0 +1,72 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
+
+body {
+    background-color: #f6f6f6;
+    padding: 50px 25px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    max-width: 770px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.header {
+    width: 100%;
+    font-weight: bold;
+    border-bottom: 1.5px solid black;
+}
+
+.header_title {
+    font-size: 6rem;
+    width: 90%;
+}
+.header_month {
+    font-size: 2.5rem;
+    line-height: 7rem;
+    float: right;
+}
+
+.under_header {
+    display: flex;
+    margin-top: 0.4rem;
+    width: 100%;
+    font-weight: bold;
+}
+
+.first_div {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+
+.second_div {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.main_container {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: 770px;
+    align-content: space-around;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+}
+
+.skyblue {
+    background-color: skyblue;
+}
+
+.gray {
+    background-color: gray;
+}
+
+.green {
+    background-color: green;
+}
