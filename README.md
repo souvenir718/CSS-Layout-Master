@@ -170,7 +170,7 @@ default: **column**(세로)
     flex-shrink: 2; // defulat: 1
     // 2배로 flexbox의 넓이가 줄어든다.
 }
-.child:nth-chiuld(3){
+.child:nth-child(3){
     flex-gorw: 1; // default:0
     //공간을 차지할수있는만큼 늘어난다.
 }
@@ -198,3 +198,106 @@ default: **column**(세로)
 
 - `flex-direction`이 row일때는  `width`
 - `flex-direction`이 column일때는 `height`
+
+
+
+## GRID
+
+```html
+<div class="father">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+    <div class="child">4</div>
+</div>
+```
+
+```css
+.father {
+    display: grid;
+    grid-template-colums: 20px 55px 89px 100px; // column 크기
+    column-gap: 10px; // column 사이의 공간
+    row-gap: 10px; // row 사이의 공간
+    // gap: 10px; → column, row 사이 공간
+    grid-template-rows: 100px 50px 300px; // row 크기
+}
+
+```
+
+
+
+### Grid Template Areas
+
+```html
+<div class="grid">
+    <div class="header"></div>
+    <div class="content"></div>
+    <div class="nav"></div>
+    <div class="footer"></div>
+</div>
+```
+
+```css
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, 200px); // → 200px 200px 200px 200px → auto 200px
+    grid-template-rows: 100px repeat(2, 200px) 100px;
+    grid-template-ares:
+        "header header header header"
+        "content content content nav"
+        "content content content nav"
+        "footer footer footer footer";
+}
+.header{
+    background-color: yellow;
+    grid-area:"header";
+}
+.content{
+    background-color: blue;
+     grid-area:"content";
+}
+.nav{
+ 	background-color: green;   
+     grid-area:"nav";
+}
+.footer{
+    background-color: red;
+     grid-area:"footer";
+}
+```
+
+
+
+### Rows and Columns
+
+```css
+.grid {
+    display: grid;
+    gap: 10px
+    grid-template-columns: repeat(4, 100px);
+    grid-template-rows: repeat(4, 100px);
+}
+.header{
+    background-color: yellow;
+    grid-column-start: 1; // line을 뜻한다.
+    gird-column-end: 5;
+}
+.content{
+    background-color: blue;
+   	grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-start: 4;
+}
+.nav{
+ 	background-color: green;
+        grid-row-start: 2;
+    grid-row-start: 4;
+}
+.footer{
+    background-color: red;
+    grid-column-start: 1;
+    grid-column-end: 5;
+}
+```
+
