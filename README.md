@@ -284,20 +284,112 @@ default: **column**(세로)
 }
 .content{
     background-color: blue;
-   	grid-column-start: 1;
+   	grid-column-start: 1; → grid-column: 1/ 4
     grid-column-end: 4;
-    grid-row-start: 2;
+    grid-row-start: 2; → grid-row: 2/  4
     grid-row-start: 4;
+    → grid-row: sapn 2 / span 2;
 }
 .nav{
  	background-color: green;
-        grid-row-start: 2;
+    grid-row-start: 2;
     grid-row-start: 4;
 }
 .footer{
     background-color: red;
     grid-column-start: 1;
     grid-column-end: 5;
+    → grid-column 1 / -1; // 처음부터 끝까지
+    → grid-column: span 4;
 }
 ```
+
+
+
+### Grid Template
+
+```html
+<div class="grid">
+    <div class="header"></div>
+    <div class="content"></div>
+    <div class="nav"></div>
+    <div class="footer"></div>
+</div>
+```
+
+```css
+.grid {
+    display: grid;
+    gap: 10px;
+    height: 50vh;
+    grid-template-columns: repeat(4, 1fr);  // 1fraction→ 사용가능한 공간
+    grid-template-rows: repeat(4, 1fr); // 사용하기 위해선 height를 지정해줘야 함.
+    /////
+    grid-template:
+        "header header header header" 1fr → row 높이
+        "content content content nav" 2fr
+        "footer footer footer footer" 1fr / 1fr 1fr 1fr 1fr  → column 각각의 넓이 지정, repeat 불가능
+        ;
+}
+.header{
+    background-color: yellow;
+	grid-area: header;
+}
+.content{
+    background-color: blue;
+	grid-area: content;
+}
+.nav{
+ 	background-color: green;
+	grid-area: nav;
+}
+.footer{
+    background-color: red;
+	grid-area: footer;
+}
+```
+
+
+
+### Place Items
+
+```html
+<div class="grid">
+    <div class="header">header</div>
+    <div class="content">content</div>
+    <div class="nav">nav</div>
+    <div class="footer">footer</div>
+</div>
+```
+
+```css
+.grid {
+    display: grid;
+    gap: 10px;
+    height: 50vh;
+    grid-template-columns: repeat(4, 1fr);  // 1fraction → 사용가능한 공간
+    grid-template-rows: repeat(4, 1fr); // 사용하기 위해선 height를 지정해줘야 함.
+    justify-items: strecth; // default
+}
+.header{
+    background-color: yellow;
+}
+.content{
+    background-color: blue;
+}
+.nav{
+ 	background-color: green;
+}
+.footer{
+    background-color: red;
+}
+```
+
+#### justify-items - 수평, align-items - 수직
+
+- `justify-items: stretch;` : 넓이만큼 늘린 상태, default 세팅
+- `justify-items: start;` : 시작점부터 item의 넓이만큼
+- `justify-items: center;` : 가운데 위치
+
+#### place-items: y  x  → align-items justify-items
 
