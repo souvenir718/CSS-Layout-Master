@@ -393,3 +393,186 @@ default: **column**(세로)
 
 #### place-items: y  x  → align-items justify-items
 
+
+
+### Place Content
+
+: **align-content justify-content**
+
+
+
+### Place Self
+
+: 개별 아이템에 직접 적용 align-self justify-self
+
+
+
+### Auto Columns and Rows
+
+```html
+<div class="grid">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+    <div class="item">8</div>
+    <div class="item">9</div>
+    <div class="item">10</div>
+    <div class="item">11</div>
+    <div class="item">12</div>
+    <div class="item">13</div>
+    <div class="item">14</div>
+    <div class="item">15</div>
+    <div class="item">16</div>
+    <div class="item">17</div>
+    <div class="item">18</div>
+    <div class="item">19</div>
+    <div class="item">20</div>
+</div>
+```
+
+```css
+.grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 100px);
+    grid-auto-rows: 100px;
+}
+item:nth-child(odd) {
+	background-color: blue;        
+}
+item:nth-child(even) {
+    background-color: green;
+}
+```
+
+#### grid-auto-rows 
+
+: 지정한 row보다 더 많은 content가 있을 때 따로 row를 지정해주지 않아도 자동으로 row를 생성 
+
+#### grid-auto-flow: column
+
+: 지정한 방향으로 설정해놓은것보다 많은 element를 가질때 (달력을 만들수도)
+
+
+
+### minmax
+
+: element를 얼마나 작고 얼마나 크게 될수있는지 지정해준다
+
+```html
+<div class="grid">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+</div>
+```
+
+```css
+.grid {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, minmax(100px, 1fr));
+    grid-template-rows: repeat(4, 100px);
+    grid-auto-columns: 100px;
+}
+item:nth-child(odd) {
+	background-color: blue;        
+}
+item:nth-child(even) {
+    background-color: green;
+}
+```
+
+
+
+### auto-fill auto-fit
+
+```html
+<body>
+    auto-fill
+    <div class="grid">
+        <div class="item">1</div>
+   		<div class="item">2</div>
+    	<div class="item">3</div>
+    	<div class="item">4</div>
+    	<div class="item">5</div>
+    </div>
+    auto-fit
+    <div class="grid">
+        <div class="item">1</div>
+   		<div class="item">2</div>
+    	<div class="item">3</div>
+    	<div class="item">4</div>
+    	<div class="item">5</div>
+    </div>
+</body>
+```
+
+```css
+.grid:first-child{
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+}
+.grid:last-child{
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+```
+
+#### auto-fill
+
+: 가능한 많이 column을 만들어준다 주어진 size에서(row를 채워준다)
+
+#### auto-fit
+
+: 현재의 element를 늘려서 row에 맞게 해준다.
+
+
+
+### min-content, max-content
+
+```html
+<div class="grid">
+    <div class="item">This is a very long text</div>
+    <div class="item">This is a very long text</div>
+</div>
+```
+
+```css
+.grid {
+    color: white;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: max-content min-content;
+    grid-template-columns: repeat(5, minmax(max-content, 1fr));
+    grid-auto-rows: 100px;
+    margin-bottom: 30px;
+}
+item:nth-child(odd) {
+	background-color: blue;        
+}
+item:nth-child(even) {
+    background-color: green;
+}
+```
+
+#### min-content
+
+: content가 작아질 수 있는 만큼 작게 만든다
+
+### max-content
+
+: content가 커질수 있는 만큼 커지게 만든다.
+
+-
