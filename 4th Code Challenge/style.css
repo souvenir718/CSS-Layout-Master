@@ -1,0 +1,70 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css');
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 100%;
+    height: 100vh;
+}
+.header {
+    text-align: center;
+    font-size: 8vh;
+    height: 20vh;
+    line-height: 20vh;
+}
+.grid {
+    display: grid;
+    height: 80vh;
+    grid-template-columns: repeat(6, minmax(100px, 1fr));
+    grid-auto-rows: 1fr;
+}
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    padding: 3vh 1.5vh;
+}
+
+.item h2 {
+    font-size: 3.5vh;
+}
+.item span {
+    font-size: 0.5vh;
+}
+
+.item:nth-child(1) {
+    background-color: rgb(191, 189, 167);
+}
+.item:nth-child(2) {
+    background: url(https://cdn.pixabay.com/photo/2020/11/26/15/28/woman-5779323__340.jpg) no-repeat center center/cover;
+}
+.item:nth-child(3) {
+    background-color: rgb(254, 71, 20);
+}
+.item:nth-child(4) {
+    background: url(https://cdn.pixabay.com/photo/2021/03/02/18/11/building-6063465__340.jpg) no-repeat center center/cover;
+}
+.item:nth-child(5) {
+    background-color: rgb(132, 126, 150);
+}
+.item:nth-child(6) {
+    background-color: rgb(208, 255, 113);
+}
+.item:nth-child(7) {
+    background-color: rgb(153, 51, 51);
+}
+.item:nth-child(8) {
+    background-color: rgb(58, 170, 250);
+}
+.item:nth-child(9) {
+    background: url(https://cdn.pixabay.com/photo/2021/02/26/19/31/snowdrop-6052942__340.jpg) no-repeat center center/cover;
+}
+.item:nth-child(10) {
+    background-color: rgb(65, 144, 122);
+}
+.item:nth-child(11) {
+    background: url(https://cdn.pixabay.com/photo/2020/06/16/01/40/buildings-5303864__340.jpg) no-repeat center center/cover;
+}
+.item:nth-child(12) {
+    background-color: rgb(227, 196, 229);
+}
